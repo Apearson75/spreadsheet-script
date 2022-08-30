@@ -10,6 +10,9 @@ import { error, errors } from './messages';
 // });
 
 export function parse(input: string, isVar: boolean, varName: string) {
+    if (input === '' || input === undefined || input === '\r')
+        return;
+
     let splitCMD: any = input.replace('\r', '');
     splitCMD = splitCMD.split(" ");
     const command = splitCMD[0];

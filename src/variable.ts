@@ -10,5 +10,4 @@ export function createVar(name: string, data: any) {
         name: name,
         data: data
     });
-    console.log(state.variables);
 }

@@ -13,7 +13,6 @@ module.exports = class GET extends command {
         if (this.args[0].toUpperCase() === "SHEETS") { 
             if (this.isVar) {
                 createVar(this.varName, state.workbook.SheetNames);
-                console.log(state.variables);
                 return;
             }
             return
@@ -25,5 +24,19 @@ module.exports = class GET extends command {
             console.log(xlsx.utils.sheet_to_csv(state.workbook.Sheets[state.currentSheet])) 
         }
         
+        // Else
+
+        var worksheet = state.workbook.Sheets[state.currentSheet];
+        try {
+            var cell = worksheet[this.args[0]].v;
+        } catch {
+            error("Could not find cell");
+            return;
+        }
+        if (this.isVar) {
+            createVar(this.varName, cell);
+            return;
+        }    
+        console.log(cell);
     }    
 }

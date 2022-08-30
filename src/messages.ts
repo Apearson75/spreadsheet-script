@@ -12,7 +12,7 @@ export enum errors {
     SHEET_NOT_FOUND = "Sheet was not found",
     SHEET_REQUIRED = "Sheet is required",
     INVALID_ARGUMENTS = "An invalid argument has been entered",
-    
+    VARIABLE_NOT_FOUND = "Variable could not be found",
 }
 
 
@@ -20,6 +20,6 @@ export function warn(message: warnings) {
     console.log(chalk.yellow(`Warning: ${message}`));
 }
 
-export function error(message: errors) {
+export function error(message: errors | string) {
     console.log(chalk.red(`Error: ${message}`));
 }

@@ -10,6 +10,7 @@ module.exports = class CMD extends command {
         try {
             state.workbook = xlsx.readFile(this.args[0]);
             state.fileName = this.args[0];
+            state.currentSheet = "";
             state.availableSheets = state.workbook.SheetNames;
         } catch(e) {
             error(errors.FILE_NOT_FOUND);

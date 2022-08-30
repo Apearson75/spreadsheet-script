@@ -13,8 +13,25 @@ module.exports = class SET extends command {
         var worksheet = state.workbook.Sheets[state.currentSheet];
         var cell = this.args[0];
         this.args.splice(0, 1);
+
         var data = this.args.join(' ');
-        data = data.replace('"', '');
+
+        if (!data.includes('"')) {
+            let found: boolean = false;
+            for (let j = 0; j <= state.variables.length; j++) {
+                if (data == state.variables[j].name) {
+                    data = state.variables[j].data;
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                error(errors.VARIABLE_NOT_FOUND);
+                return;
+            } 
+        }
+
+        data = data.replaceAll('"', '');
         try {
             var change = xlsx.utils.sheet_add_aoa(worksheet, [
                 [data]

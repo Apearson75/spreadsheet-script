@@ -1,3 +1,7 @@
+# SpreadSheet Script
+
+## Demo File:
+```
 LOG "This program will copy A1 from test.xlsx to B1 of copy.xlsx"
 
 OPEN test.xlsx
@@ -12,3 +16,4 @@ SAVE
 LOG "DONE"
 
 FREE test
+```
