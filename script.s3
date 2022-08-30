@@ -1,0 +1,3 @@
+OPEN test.xlsx
+SHEET Sheet1
+var sheets = get sheets

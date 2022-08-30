@@ -7,7 +7,12 @@ export enum warnings {
 export enum errors {
     COMMAND_NOT_FOUND = "Command could not be found",
     ARGUMENTS_REQUIRED = "Arguments are required",
-    FILE_NOT_READABLE = "File could not be read"
+    FILE_NOT_FOUND = "File could not be found",
+    NO_FILE_OPEN = "There is no file open",
+    SHEET_NOT_FOUND = "Sheet was not found",
+    SHEET_REQUIRED = "Sheet is required",
+    INVALID_ARGUMENTS = "An invalid argument has been entered",
+    
 }
 
 

@@ -14,10 +14,11 @@ module.exports = class RUN extends command {
         try {
             script = fs.readFileSync(this.args[0]).toString().split('\n');
         } catch(e) {
-            error(errors.FILE_NOT_READABLE);    
+            error(errors.FILE_NOT_FOUND);
+            return;    
         }
         for (let i = 0; i < script.length; i++) {
-            parse(script[i]);
+            parse(script[i], false, '');
         }
     }
 }
