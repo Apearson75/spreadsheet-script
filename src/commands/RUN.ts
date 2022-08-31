@@ -9,16 +9,16 @@ let script: Array<string>;
 module.exports = class RUN extends command {
     override run(): void {
         if (this.args.length >= 2) warn(warnings.TOO_MANY_ARGUMENTS);
-        if (this.args.length == 0) {error(errors.ARGUMENTS_REQUIRED); return;}
+        if (this.args.length == 0) {error(errors.ARGUMENTS_REQUIRED, this.lineNo, this.fileName); return;}
 
         try {
             script = fs.readFileSync(this.args[0]).toString().split('\n');
         } catch(e) {
-            error(errors.FILE_NOT_FOUND);
+            error(errors.FILE_NOT_FOUND, this.lineNo, this.fileName);
             return;    
         }
         for (let i = 0; i < script.length; i++) {
-            parse(script[i], false, '');
+            parse(script[i], false, '', i, this.args[0]);
         }
     }
 }

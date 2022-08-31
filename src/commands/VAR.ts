@@ -6,7 +6,7 @@ import { createVar } from '../variable';
 
 module.exports = class VAR extends command {
     override run(): void {
-        if (this.args.length == 0) {error(errors.ARGUMENTS_REQUIRED); return;}
+        if (this.args.length == 0) {error(errors.ARGUMENTS_REQUIRED, this.lineNo, this.fileName); return;}
 
         const varName = this.args[0];
         if (this.args.length == 1) {
@@ -16,6 +16,6 @@ module.exports = class VAR extends command {
         
         this.args.splice(0, 2);
         const cmd = this.args.join(' ');
-        parse(cmd, true, varName);
+        parse(cmd, true, varName, undefined, undefined);
     }
 }

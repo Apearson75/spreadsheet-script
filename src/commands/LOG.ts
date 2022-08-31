@@ -24,7 +24,7 @@ module.exports = class LOG extends command {
                         }
                     }
                     if (!found) {
-                        error(errors.VARIABLE_NOT_FOUND);
+                        error(errors.VARIABLE_NOT_FOUND, this.lineNo, this.fileName);
                         return;
                     }    
                 }

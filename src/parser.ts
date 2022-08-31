@@ -9,7 +9,7 @@ import { error, errors } from './messages';
 //     }, 
 // });
 
-export function parse(input: string, isVar: boolean, varName: string) {
+export function parse(input: string, isVar: boolean, varName: string, lineNo: number | undefined, fileName: string | undefined) {
     if (input === '' || input === undefined || input === '\r')
         return;
 
@@ -28,6 +28,6 @@ export function parse(input: string, isVar: boolean, varName: string) {
         // vm.run(`const command = require('./out/commands/${command}'); new command(${JSON.stringify(splitCMD)}).run();`);
     } catch(e: any) {
         console.log(e);
-        error(errors.COMMAND_NOT_FOUND);
+        error(errors.COMMAND_NOT_FOUND, lineNo, fileName);
     }    
 }

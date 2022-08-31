@@ -17,3 +17,24 @@ LOG "DONE"
 
 FREE test
 ```
+---
+## How to run
+
+1.  Download the source code
+```
+git clone https://github.com/phoneguytech75/spreadsheet-script/
+```
+
+2. Compile and run
+```bash
+cd spreadsheet-script
+npm i
+npm run compile
+npm start
+```
+
+3. Run script.s3
+```
+> run script.s3
+```
+### Done!

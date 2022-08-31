@@ -6,7 +6,7 @@ import { createVar } from '../variable';
 
 module.exports = class INPUT extends command {
     override run(): void {
-        if (this.args.length == 0) {error(errors.ARGUMENTS_REQUIRED); return;}
+        if (this.args.length == 0) {error(errors.ARGUMENTS_REQUIRED, this.lineNo, this.fileName); return;}
 
         const question = this.args.join(' ');
 

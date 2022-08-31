@@ -4,5 +4,5 @@ import { parse } from './parser';
 while (true) {
     const command = readline.question("> ");
     if (command != '' && command != undefined)
-        parse(command, false, '');
+        parse(command, false, '', undefined, undefined);
 }    

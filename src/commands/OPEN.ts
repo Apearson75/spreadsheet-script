@@ -6,14 +6,14 @@ import { state } from '../state';
 module.exports = class CMD extends command {
     override run(): void {
         if (this.args.length >= 2) warn(warnings.TOO_MANY_ARGUMENTS);
-        if (this.args.length == 0) {error(errors.ARGUMENTS_REQUIRED); return;}
+        if (this.args.length == 0) {error(errors.ARGUMENTS_REQUIRED, this.lineNo, this.fileName); return;}
         try {
             state.workbook = xlsx.readFile(this.args[0]);
             state.fileName = this.args[0];
             state.currentSheet = "";
             state.availableSheets = state.workbook.SheetNames;
         } catch(e) {
-            error(errors.FILE_NOT_FOUND);
+            error(errors.FILE_NOT_FOUND, this.lineNo, this.fileName);
             return;
         }    
     }

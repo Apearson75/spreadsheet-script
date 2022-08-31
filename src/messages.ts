@@ -20,6 +20,9 @@ export function warn(message: warnings) {
     console.log(chalk.yellow(`Warning: ${message}`));
 }
 
-export function error(message: errors | string) {
-    console.log(chalk.red(`Error: ${message}`));
+export function error(message: errors | string, lineNo: number | undefined, fileName: string | undefined) {
+    if (lineNo !== undefined && fileName !== undefined)
+        console.log(chalk.bold.red(`${fileName}:${lineNo + 1}`), chalk.red(`- ${message}`));
+    else
+        console.log(chalk.red(`Error: ${message}`));
 }
