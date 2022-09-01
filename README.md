@@ -29,7 +29,7 @@ git clone https://github.com/phoneguytech75/spreadsheet-script/
 ```bash
 cd spreadsheet-script
 npm i
-npm run compile
+npm run build
 npm start
 ```
 

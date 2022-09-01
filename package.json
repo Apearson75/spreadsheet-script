@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "compile": "tsc",
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-old": "ts-node ./src/index.ts",
-    "dev": "npm run compile && node out/index.js",
-    "start": "node out/index.js"
+    "dev": "npm run build && node out/index.js",
+    "start": "node ."
   },
   "keywords": [],
   "author": "",
@@ -21,6 +21,7 @@
     "enquirer": "^2.3.6",
     "exceljs": "^4.3.0",
     "inquirer": "^9.1.0",
+    "pkg": "^5.8.0",
     "readline-sync": "^1.4.10",
     "require-dir": "^1.2.0",
     "requirejs": "^2.3.6",

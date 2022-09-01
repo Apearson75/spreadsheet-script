@@ -3,6 +3,7 @@ import { warn, warnings, error, errors } from '../messages';
 import { command } from './command';
 import { state } from '../state';
 import { createVar } from '../variable';
+import { DataParser } from '../parser';
 
 module.exports = class GET extends command {
     override run(): void {
@@ -25,12 +26,16 @@ module.exports = class GET extends command {
         }
         
         // Else
-
+        const dataParser = new DataParser();
+        const coordinates = dataParser.stringParser(this.args, this.lineNo, this.fileName);
+        if (dataParser.isError)
+            return;
+            
         var worksheet = state.workbook.Sheets[state.currentSheet];
         try {
-            var cell = worksheet[this.args[0]].v;
+            var cell = worksheet[coordinates].v;
         } catch {
-            error("Could not find cell", this.lineNo, this.fileName);
+            error(errors.CELL_NOT_FOUND, this.lineNo, this.fileName);
             return;
         }
         if (this.isVar) {

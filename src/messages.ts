@@ -13,6 +13,7 @@ export enum errors {
     SHEET_REQUIRED = "Sheet is required",
     INVALID_ARGUMENTS = "An invalid argument has been entered",
     VARIABLE_NOT_FOUND = "Variable could not be found",
+    CELL_NOT_FOUND = "Cell could not be found"
 }
 
 

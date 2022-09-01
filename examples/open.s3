@@ -1,0 +1,20 @@
+LOG "This will open a file depending on your input"
+
+var file = input What file do you want to open
+open file
+log "Opened" + file
+
+var theSheet = input What sheet do you want to open
+sheet theSheet
+
+LOG "Now this will copy a cell to another one"
+
+var cell1 = input Which cell to copy
+*cell1 = get cell1
+
+var cell2 = input Which cell to copy to
+set cell2 cell1
+
+save
+
+log "Done"

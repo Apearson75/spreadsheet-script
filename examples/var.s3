@@ -1,0 +1,10 @@
+open test.xlsx
+sheet Sheet1
+var cool = get A1
+*cool = get A2
+
+set A1 cool
+
+var empty
+*empty = get A1
+log empty
